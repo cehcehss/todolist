@@ -65,7 +65,6 @@ select.form-control:focus {
     list-style-type: none;
     border-radius: 5px;
     padding: 10px;
-    /* display:inline-block; */
 }
 
 .content-li:hover {
