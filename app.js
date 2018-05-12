@@ -4,13 +4,13 @@ $(function () {
 
     $(".form-control").keypress(function (e) {
         if (e.which == 13) {
-            saveData()
+            saveData();
         }
     });
     //點擊add-btn後
 
     $(".add-btn").on("click", function () {
-        saveData()
+        saveData();
     });
 
     function saveData() {
