@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 mx-auto">
+                <div class="add-item-group">
+                    <select class="form-control color-dropdown">
+                        <option selected="">選擇顏色</option>
+                        <option value="red">Red</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="blue">Blue</option>
+                    </select>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="新增事項..." id="add-item">
+                        <i class="fa fa-plus add-btn"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div class="ul-container">
+                    <ul id="to-do-list-ul"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCUZXU4n2P-8toZ37L_-4qD72LOqy2QKnI",
+            authDomain: "html-296-elsie.firebaseapp.com",
+            databaseURL: "https://html-296-elsie.firebaseio.com",
+            projectId: "html-296-elsie",
+            storageBucket: "html-296-elsie.appspot.com",
+            messagingSenderId: "277796278417"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+    </script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
