@@ -7,6 +7,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
 }
 
 .add-item-group {
@@ -29,6 +30,7 @@ body {
     border-radius: .25rem;
     display: inline-block;
     width: 350px;
+    background-color: white;
 }
 
 #add-item {
@@ -56,6 +58,11 @@ select.form-control:focus {
     color: #fa8072;
 }
 
+.ul-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
 #to-do-list-ul {
     padding: 0px;
 }
@@ -63,7 +70,6 @@ select.form-control:focus {
 .content-li {
     margin: 20px;
     list-style-type: none;
-    border-radius: 5px;
     padding: 10px;
 }
 
@@ -78,23 +84,28 @@ select.form-control:focus {
 }
 
 .red {
-    background-color: #ffdae0;
-    border-bottom: 0.5px solid grey;
+    background-color: white;
+    border-left: 20px solid #ffdae0;
+    box-shadow: 2px 2px 2px 0px #c0c0c0;
 }
 
 .yellow {
-    background-color: #fffac7;
-    border-bottom: 0.5px solid grey;
+    background-color: white;
+    border-left: 20px solid #fffac7;
+    box-shadow: 2px 2px 2px 0px #c0c0c0;
 }
 
 .blue {
-    background-color: #dcedff;
-    border-bottom: 0.5px solid grey;
+    background-color: white;
+    border-left: 20px solid #dcedff;
+    box-shadow: 2px 2px 2px 0px #c0c0c0;
 }
 
 .done {
     text-decoration: line-through;
     background-color: #dddddd;
+    border-left: 20px solid grey;
+    opacity: 0.5;
 }
 
 .float-right {
@@ -110,14 +121,18 @@ select.form-control:focus {
     color: #c0c0c0;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
     .color-dropdown {
         width: 100%;
+        margin-bottom: 10px;
     }
     .input-group {
         width: 100%;
     }
     #add-item {
         width: 90%;
+    }
+    .ul-container {
+        width: 100%;
     }
 }
