@@ -1,5 +1,4 @@
 $(function () {
-
     var collectionRef = db.collection("todolist");
 
     $(".form-control").keypress(function (e) {
@@ -21,6 +20,7 @@ $(function () {
         var item = {
             color: $itemColorValue,
             content: $inputItemValue,
+            order: $('#to-do-list-ul li').length,
             done: false
         };
         //儲存input value至firestore
@@ -44,13 +44,14 @@ $(function () {
     //check box-text-delete
     //依照done的狀態給予class done
     //依照color給予背景顏色
-    db.collection("todolist").onSnapshot(function (snapshot) {
+    db.collection("todolist").orderBy("order", "asc").onSnapshot(function (snapshot) {
         snapshot.docChanges.forEach(function (change) {
             if (change.type === "added") {
                 var $li = $(`<li class="content-li" id=${change.doc.id}><i class="far fa-trash-alt float-right del-btn"id=${change.doc.id}></i></li>`);
                 var content = change.doc.data().content;
                 $li.append(content);
                 $li.appendTo($toDoListUl);
+                console.log($('#to-do-list-ul li').length);
                 if (change.doc.data().done) {
                     $li.addClass("done");
                 }
@@ -88,6 +89,16 @@ $(function () {
         });
     });
 
-
+    $("#to-do-list-ul").sortable({
+        update: function (e, ui) {
+            var liOrder = $("#to-do-list-ul").sortable("toArray");
+            console.log(liOrder);
+            liOrder.forEach(function (value, index) {
+                collectionRef.doc(value).update({
+                    order: index
+                });
+            });
+        }
+    });
 
 });
