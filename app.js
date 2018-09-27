@@ -2,7 +2,7 @@ $(function () {
     var collectionRef = db.collection("todolist");
 
     $(".form-control").keypress(function (e) {
-        if (e.which == 13) {
+        if (e.keyCode == 13) {
             saveData();
         }
     });
