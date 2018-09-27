@@ -3,13 +3,17 @@ $(function () {
 
     $(".form-control").keypress(function (e) {
         if (e.keyCode == 13) {
-            saveData();
+            if ($("#add-item").val() != "") {
+                saveData();
+            }
         }
     });
     //點擊add-btn後
 
     $(".add-btn").on("click", function () {
-        saveData();
+        if ($("#add-item").val() != "") {
+            saveData();
+        }
     });
 
     function saveData() {
